@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Spinner } from "../../components/Spinner";
 import { api } from "../../lib/axios";
 import { Profile } from "./components/Profile";
-// import { SearchInput } from "./components/SearchInput";
+import { SearchInput } from "./components/SearchInput";
 // import { Post } from "./components/Post";
 import { PostsListContainer } from "./styles";
 
@@ -48,16 +48,16 @@ export function Blog() {
   return (
     <>
       <Profile />
-      {/* <SearchInput postsLength={posts.length} getPosts={getPosts} />
+      <SearchInput postsLength={posts.length} getPosts={getPosts} />
       {isLoading ? (
         <Spinner />
       ) : (
         <PostsListContainer>
-          {posts.map((post) => (
+          {/* {posts.map((post) => (
             // <Post key={post.number} post={post} />
-          ))}
+          ))} */}
         </PostsListContainer>
-      )} */}
+      )}
     </>
   );
 }
