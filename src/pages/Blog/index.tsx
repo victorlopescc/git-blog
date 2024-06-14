@@ -3,7 +3,7 @@ import { Spinner } from "../../components/Spinner";
 import { api } from "../../lib/axios";
 import { Profile } from "./components/Profile";
 import { SearchInput } from "./components/SearchInput";
-// import { Post } from "./components/Post";
+import { Post } from "./components/Post";
 import { PostsListContainer } from "./styles";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME;
@@ -30,7 +30,7 @@ export function Blog() {
       try {
         setIsLoading(true);
         const response = await api.get(
-          `/search/issues?q=${query}%20label:published%20repo:${username}/${repoName}`
+          `/search/issues?q=${query}%20repo:${username}/${repoName}`
         );
 
         setPosts(response.data.items);
@@ -53,9 +53,9 @@ export function Blog() {
         <Spinner />
       ) : (
         <PostsListContainer>
-          {/* {posts.map((post) => (
-            // <Post key={post.number} post={post} />
-          ))} */}
+          {posts.map((post) => (
+            <Post key={post.number} post={post} />
+          ))}
         </PostsListContainer>
       )}
     </>
